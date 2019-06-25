@@ -8,10 +8,9 @@ end
 function main()
     shell.run("rm install.txt")
     wget("install.txt")
+    local file = io.open("install.txt")
 
-    print(io.lines("install.txt"))
-
-    for line in io.lines("install.txt") do
+    for line in file:lines() do
         shell.run("rm " .. line)
         print("Getting " .. line)
         wget(line)
