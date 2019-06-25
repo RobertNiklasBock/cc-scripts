@@ -1,6 +1,7 @@
 local save = require "save"
 
 local cobbleSlot = 16
+local torchSlot = 15
 
 function segment()
     turtle.select(cobbleSlot)
