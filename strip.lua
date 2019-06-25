@@ -71,10 +71,9 @@ while true do
     segment()
     turtle.turnLeft()
     branch(1,5)
-    turtle.saveDown()
+    save.down()
     branch(1,5)
     turtle.turnRight()
-    save.up()
     if counter % 2 == 0 then
         save.placeDown(torchSlot)
     end
