@@ -49,7 +49,7 @@ function save.forward(times)
     end
 end
 
-function save.up()(times)
+function save.up(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
