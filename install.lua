@@ -9,6 +9,8 @@ function main()
     shell.run("rm install.txt")
     wget("install.txt")
 
+    print(io.lines("install.txt"))
+
     for line in io.lines("install.txt") do
         shell.run("rm " .. line)
         print("Getting " .. line)
