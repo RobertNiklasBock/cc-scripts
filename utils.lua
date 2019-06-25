@@ -1,4 +1,4 @@
-﻿local utils = {}
+local utils = {}
 
 function utils.optional(arg, default)
     if not arg then
