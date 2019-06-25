@@ -1,0 +1,6 @@
+﻿minecraft:coal
+minecraft:redstone
+minecraft:gold_ore
+minecraft:iron_ore
+minecraft:diamond
+minecraft:dye 4
