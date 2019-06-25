@@ -1,6 +1,6 @@
 local utils = {}
 
-function compressInventory(blacklist)
+function utils.compressInventory(blacklist)
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         local skip = false
@@ -23,7 +23,7 @@ function compressInventory(blacklist)
         ::continue::
     end
 
-function isInventoryFull()
+function utils.isInventoryFull()
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         turtle.select(i)
