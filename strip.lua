@@ -1,7 +1,7 @@
 local save = require "save"
 
 local cobbleSlot = 16
-local torchSlot = 15e
+local torchSlot = 15
 
 function segment()
     turtle.select(cobbleSlot)
@@ -66,8 +66,12 @@ function branch(low,len)
     end
 end
 
-segment()
-turtle.turnLeft()
-branch(1,5)
-branch(0,5)
-turtle.turnRight()
+while true do
+    segment()
+    turtle.turnLeft()
+    branch(1,5)
+    branch(0,5)
+    turtle.turnRight()
+    save.up()
+    save.placeDown(torchSlot)
+end

@@ -76,4 +76,56 @@ end
 
 --------------------------------------------------------------------------------
 
+function save.placeDown(slot)
+    local previousSlot = turtle.getSelectedSlot()
+    if slot then
+        turtle.select(slot)
+    end
+
+    if turtle.getItemCount() == 0 then
+        return false
+    else
+        turtle.placeDown()
+    end
+
+    if slot then
+        turtle.select(previousSlot)
+    end
+end
+
+function save.place(slot)
+    local previousSlot = turtle.getSelectedSlot()
+    if slot then
+        turtle.select(slot)
+    end
+
+    if turtle.getItemCount() == 0 then
+        return false
+    else
+        turtle.place()
+    end
+
+    if slot then
+        turtle.select(previousSlot)
+    end
+end
+
+function save.placeUp(slot)
+    local previousSlot = turtle.getSelectedSlot()
+    if slot then
+        turtle.select(slot)
+    end
+
+    if turtle.getItemCount() == 0 then
+        return false
+    else
+        turtle.placeUp()
+    end
+
+    if slot then
+        turtle.select(previousSlot)
+    end
+end
+
+-------------------------------------------------------------------------------
 return save
