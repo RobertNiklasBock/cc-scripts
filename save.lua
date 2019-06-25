@@ -41,7 +41,7 @@ end
 --------------------------------------------------------------------------------
 
 function save.forward(times)
-    times = utils.optional(times, 1)
+    times = times or 1
 
     for i=1,times do
         save.dig()
@@ -50,7 +50,7 @@ function save.forward(times)
 end
 
 function save.up(times)
-    times = utils.optional(times, 1)
+    times = times or 1
 
     for i=1,times do
         save.digUp()
@@ -59,7 +59,7 @@ function save.up(times)
 end
 
 function save.down(times)
-    times = utils.optional(times, 1)
+    times = times or 1
 
     for i=1,times do
         save.digDown()
