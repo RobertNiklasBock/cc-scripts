@@ -45,29 +45,38 @@ end
 
 function safeForward(times)
     times = optional(times, 1)
+    local counter = 0
 
     for i=1,times do
-        safeDig()
+        counter = counter + safeDig()
         turtle.forward()
     end
+
+    return counter
 end
 
 function safeUp()(times)
     times = optional(times, 1)
+    local counter = 0
 
     for i=1,times do
-        safeDigUp()
+        counter = counter + safeDigUp()
         turtle.up()
     end
+
+    return counter
 end
 
 function safeDown()(times)
     times = optional(times, 1)
+    local counter = 0
 
     for i=1,times do
-        safeDigDown()
+        counter = counter + safeDigDown()
         turtle.down()
     end
+
+    return counter
 end
 
 --------------------------------------------------------------------------------
@@ -76,3 +85,27 @@ function turnAround()
     turtle.turnLeft()
     turtle.turnLeft()
 end
+
+function refuelTo(level, slot)
+    local previousSlot = turtle.getSelectedSlot()
+
+    if slot then
+        turtle.select(slot)
+    end
+
+    local counter = 0
+
+    while turtle.getFuelLevel() < level do
+        turtle.refuel(1)
+        counter = counter + 1
+        if turtle.getItemCount() == 0 then
+            break
+        end
+    end
+
+    turtle.select(previousSlot)
+
+    return counter
+end
+
+--------------------------------------------------------------------------------
