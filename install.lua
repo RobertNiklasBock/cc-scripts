@@ -8,23 +8,13 @@ end
 function main()
     shell.run("rm install.txt")
     wget("install.txt")
+    local file = io.open("install.txt")
 
-    for line in io.lines("install.txt") do
+    for line in io.lines(file) do
         shell.run("rm " .. line)
-        print "Getting " .. line
+        print("Getting " .. line)
         wget(line)
-
     end
 end
 
-
-
-
-
-
-
-
-
-shell.run("wget https://raw.githubusercontent.com/RobertNiklasBock/cc-scripts/master/utils.lua utils.lua")
-shell.run("wget https://raw.githubusercontent.com/RobertNiklasBock/cc-scripts/master/install.lua install.lua")
-shell.run("wget https://raw.githubusercontent.com/RobertNiklasBock/cc-scripts/master/strip.lua strip.lua")
+main()
