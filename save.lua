@@ -49,7 +49,7 @@ function save.forward(times)
     end
 end
 
-function save.upinstal(times)
+function save.up(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
@@ -58,7 +58,7 @@ function save.upinstal(times)
     end
 end
 
-function save.down()(times)
+function save.down(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
