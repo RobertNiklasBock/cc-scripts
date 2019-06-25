@@ -11,7 +11,7 @@ function utils.compressInventory(blacklist)
             end
         end
 
-        if skip == true then
+        if skip then
             goto continue
         end
 
