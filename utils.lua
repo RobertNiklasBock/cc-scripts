@@ -15,6 +15,9 @@ function utils.compressInventory(blacklist)
             turtle.select(i)
 
             for j=1,i-1 do
+                if turtle.getItemCout() == 0 then
+                    break
+                end
                 turtle.transferTo(j)
             end
         end
@@ -25,6 +28,7 @@ function utils.isInventoryFull()
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         turtle.select(i)
-
+    end
+end
 
 return utils
