@@ -44,7 +44,7 @@ function save.forward(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
-        safeDig()
+        save.dig()
         turtle.forward()
     end
 end
@@ -53,7 +53,7 @@ function save.up()(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
-        safeDigUp()
+        save.digUp()
         turtle.up()
     end
 end
@@ -62,7 +62,7 @@ function save.down()(times)
     times = utils.optional(times, 1)
 
     for i=1,times do
-        safeDigDown()
+        save.digDown()
         turtle.down()
     end
 end
