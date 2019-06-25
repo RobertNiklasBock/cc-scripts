@@ -45,7 +45,9 @@ function save.forward(times)
 
     for i=1,times do
         save.dig()
-        turtle.forward()
+        while not turtle.forward() do
+            turtle.attack()
+        end
     end
 end
 
@@ -54,7 +56,9 @@ function save.up(times)
 
     for i=1,times do
         save.digUp()
-        turtle.up()
+        while not turtle.up() do
+            turtle.attackUp()
+        end
     end
 end
 
@@ -63,7 +67,9 @@ function save.down(times)
 
     for i=1,times do
         save.digDown()
-        turtle.down()
+        while not turtle.down() do
+            turtle.attackDown()
+        end
     end
 end
 

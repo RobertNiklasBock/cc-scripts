@@ -66,12 +66,17 @@ function branch(low,len)
     end
 end
 
+local counter = 0
 while true do
     segment()
     turtle.turnLeft()
     branch(1,5)
-    branch(0,5)
+    turtle.saveDown()
+    branch(1,5)
     turtle.turnRight()
     save.up()
-    save.placeDown(torchSlot)
+    if counter % 2 == 0 then
+        save.placeDown(torchSlot)
+    end
+    counter = counter + 1
 end
