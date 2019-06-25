@@ -1,4 +1,4 @@
-﻿local save = require "save"
+local save = require "save"
 
 local cobbleSlot = 16
 
