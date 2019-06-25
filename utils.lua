@@ -11,17 +11,15 @@ function utils.compressInventory(blacklist)
             end
         end
 
-        if skip then
-            goto continue
-        end
+        if not skip then
+            turtle.select(i)
 
-        turtle.select(i)
-
-        for j=1,i-1 do
-            turtle.transferTo(j)
+            for j=1,i-1 do
+                turtle.transferTo(j)
+            end
         end
-        ::continue::
     end
+end
 
 function utils.isInventoryFull()
     local previousSlot = turtle.getSelectedSlot()
