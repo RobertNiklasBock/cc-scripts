@@ -1,16 +1,24 @@
 local utils = {}
 
+function utils.findInList(item,blacklist)
+    for k,v in ipairs(blacklist) do
+        if v == item then
+            return k
+        end
+    end
+
+    return nil
+end
+
 function utils.compressInventory(blacklist)
+    blacklist = blacklist or {}
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         local skip = false
-        for k,v in ipairs(blacklist) do
-            if v == i then
-                skip = true
-                break
-            end
+        if utils.findInList(i, blacklist) then
+            skip = true
         end
-
+        
         if not skip then
             turtle.select(i)
 
@@ -24,11 +32,23 @@ function utils.compressInventory(blacklist)
     end
 end
 
-function utils.isInventoryFull()
-    local previousSlot = turtle.getSelectedSlot()
+function utils.isInventoryFull(blacklist)
+    blacklist = blacklist or {}
+    local isFull = true
     for i=1,16 do
-        turtle.select(i)
+        local skip = false
+        if utils.findInList(i, blacklist) then
+            skip = true
+        end
+        
+        if not skip then
+            if turtle.getItemCount() == 0 then
+                return false
+            end
+        end
     end
+
+    return true
 end
 
 return utils
