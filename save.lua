@@ -1,14 +1,11 @@
-function optional(arg, default)
-    if not arg then
-        return default
-    else
-        return arg
-    end
-end
+local save = {}
+--------------------------------------------------------------------------------
+
+local utils = require "utils"
 
 --------------------------------------------------------------------------------
 
-function safeDig()
+function save.dig()
     local counter = 0
 
     while(turtle.detect()) do
@@ -19,7 +16,7 @@ function safeDig()
     return counter
 end
 
-function safeDigUp()
+function save.digUp()
     local counter = 0
 
     while(turtle.detectUp()) do
@@ -30,7 +27,7 @@ function safeDigUp()
     return counter
 end
 
-function safeDigDown()
+function save.digDown()
     local counter = 0
 
     while(turtle.detectDown()) do
@@ -43,8 +40,8 @@ end
 
 --------------------------------------------------------------------------------
 
-function safeForward(times)
-    times = optional(times, 1)
+function save.forward(times)
+    times = utils.optional(times, 1)
 
     for i=1,times do
         safeDig()
@@ -52,8 +49,8 @@ function safeForward(times)
     end
 end
 
-function safeUp()(times)
-    times = optional(times, 1)
+function save.up()(times)
+    times = utils.optional(times, 1)
 
     for i=1,times do
         safeDigUp()
@@ -61,8 +58,8 @@ function safeUp()(times)
     end
 end
 
-function safeDown()(times)
-    times = optional(times, 1)
+function save.down()(times)
+    times = utils.optional(times, 1)
 
     for i=1,times do
         safeDigDown()
@@ -72,7 +69,11 @@ end
 
 --------------------------------------------------------------------------------
 
-function turnAround()
+function save.turnAround()
     turtle.turnLeft()
     turtle.turnLeft()
 end
+
+--------------------------------------------------------------------------------
+
+return save
