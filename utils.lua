@@ -42,8 +42,8 @@ function utils.organizeInventory(matchingTable)
     end
 
     for i=1,16 do
-        if not matchingTable[i] == nil then
-            if not utils.getItemName(i) == matchingTable[i] then
+        if matchingTable[i] ~= nil then
+            if utils.getItemName(i) ~= matchingTable[i] then
                 turtle.transferTo(freeSlot)
             end
 
