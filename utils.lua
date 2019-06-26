@@ -47,11 +47,11 @@ function utils.organizeInventory(matchingTable)
                 turtle.transferTo(freeSlot)
             end
 
-            for i=1,16 do
+            for j=1,16 do
                 -- check whether this slot is in sorting table -> we dont want to break existing order
-                if matchingTable[i] == nil then
-                    turtle.select(i)
-                    turtle.transferTo(k)
+                if matchingTable[j] == nil then
+                    turtle.select(j)
+                    turtle.transferTo(i)
                     -- if items were left behind, the target slot is full -> break early
                     if not turtle.getItemCount() == 0 then
                         break
