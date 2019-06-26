@@ -41,22 +41,24 @@ function utils.organizeInventory(matchingTable)
         return false
     end
 
-    for k,v in ipairs(matchingTable) do
-        if not utils.getItemName(k) == v then
-            turtle.transferTo(freeSlot)
-        end
+    for i=1,16 do
+        if not matchingTable[i] == nil then
+            if not utils.getItemName(i) == matchingTable[i] then
+                turtle.transferTo(freeSlot)
+            end
 
-        for i=1,16 do
-            -- check whether this slot is in sorting table -> we dont want to break existing order
-            if matchingTable[i] == nil then
-                turtle.select(i)
-                turtle.transferTo(k)
-                -- if items were left behind, the target slot is full -> break early
-                if not turtle.getItemCount() == 0 then
-                    break
-                -- otherwise we have a new, definitively free slot
-                else
-                    freeSlot = i
+            for i=1,16 do
+                -- check whether this slot is in sorting table -> we dont want to break existing order
+                if matchingTable[i] == nil then
+                    turtle.select(i)
+                    turtle.transferTo(k)
+                    -- if items were left behind, the target slot is full -> break early
+                    if not turtle.getItemCount() == 0 then
+                        break
+                    -- otherwise we have a new, definitively free slot
+                    else
+                        freeSlot = i
+                    end
                 end
             end
         end
@@ -67,8 +69,6 @@ end
 
 function utils.getFreeSlot()
     for i=1,16 do
-        --TODO: REMOVE
-        print(str(i))
         if turtle.getItemCount(i) == 0 then
             return i
         end
