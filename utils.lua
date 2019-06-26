@@ -66,16 +66,13 @@ function utils.organizeInventory(matchingTable)
 end
 
 function utils.getFreeSlot()
-    local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
-        turtle.select(i)
-        if turtle.getItemCount() == 0 then
-            turtle.select(previousSlot)
+        --TODO: REMOVE
+        print(str(i))
+        if turtle.getItemCount(i) == 0 then
             return i
         end
     end
-
-    turtle.select(previousSlot)
     return 0
 end
 
