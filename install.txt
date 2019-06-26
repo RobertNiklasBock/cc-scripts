@@ -1,0 +1,4 @@
+save.lua
+strip.lua
+utils.lua
+valuable.txt

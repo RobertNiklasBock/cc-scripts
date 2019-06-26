@@ -1,16 +1,24 @@
 ﻿local utils = {}
 
+function utils.findInList(item,blacklist)
+    for k,v in ipairs(blacklist) do
+        if v == item then
+            return k
+        end
+    end
+
+    return nil
+end
+
 function utils.compressInventory(blacklist)
+    blacklist = blacklist or {}
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         local skip = false
-        for k,v in ipairs(blacklist) do
-            if v == i then
-                skip = true
-                break
-            end
+        if utils.findInList(i, blacklist) then
+            skip = true
         end
-
+        
         if not skip then
             turtle.select(i)
 

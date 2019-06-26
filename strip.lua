@@ -47,6 +47,7 @@ function branch(low,len)
     if low == 1 then
         floor(len)
         save.up()
+        turtle.placeUp()
         turtle.select(torchSlot)
         turtle.placeDown()
         turtle.select(cobbleSlot)
@@ -68,13 +69,13 @@ end
 
 local counter = 0
 while true do
+    turtle.placeUp()
     segment()
     turtle.turnLeft()
     branch(1,5)
-    turtle.saveDown()
+    save.down()
     branch(1,5)
     turtle.turnRight()
-    save.up()
     if counter % 2 == 0 then
         save.placeDown(torchSlot)
     end
