@@ -62,6 +62,7 @@ function utils.organizeInventory(matchingTable)
         end
     end
     turtle.select(previousSlot)
+    return true
 end
 
 function utils.getFreeSlot()
