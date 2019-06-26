@@ -80,7 +80,11 @@ end
 
 function utils.getItemName(slot)
     local detail = turtle.getItemDetail(slot)
-    return detail.name or ""
+    if detail then
+        return detail.name
+    else
+        return ""
+    end
 end
 
 function utils.isInList(item, list)
