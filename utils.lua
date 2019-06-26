@@ -1,4 +1,4 @@
-﻿local utils = {}
+local utils = {}
 
 function utils.findInList(item,blacklist)
     for k,v in ipairs(blacklist) do
@@ -52,7 +52,7 @@ function utils.organizeInventory(matchingTable)
                 turtle.select(i)
                 turtle.transferTo(k)
                 -- if items were left behind, the target slot is full -> break early
-                if turtle.getItemCount() != 0 then
+                if not turtle.getItemCount() == 0 then
                     break
                 -- otherwise we have a new, definitively free slot
                 else
@@ -61,16 +61,20 @@ function utils.organizeInventory(matchingTable)
             end
         end
     end
+    turtle.select(previousSlot)
+end
 
 function utils.getFreeSlot()
     local previousSlot = turtle.getSelectedSlot()
     for i=1,16 do
         turtle.select(i)
         if turtle.getItemCount() == 0 then
+            turtle.select(previousSlot)
             return i
         end
     end
 
+    turtle.select(previousSlot)
     return 0
 end
 
